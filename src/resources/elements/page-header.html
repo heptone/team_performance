@@ -1,0 +1,15 @@
+<template bindable="router">
+
+    <div class="jumbotron text-center bg-dark justify-content-center">
+      <h1 class="text-white">TEAM PERFORMANCE</h1>
+      <div class="container">
+        <nav class="navbar navbar-expand-sm bg-dark d-flex justify-content-center">
+          <ul class="nav nav-tabs nav-justified">
+            <li repeat.for="row of router.navigation" class="nav-item ${row.isActive ? 'active bg-dark' : ''}">
+              <a class="nav-link ${row.isActive ? 'active text-dark' : 'text-white-50'} " data-toogle="tabs" href.bind="row.href">${row.title}</a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+</template>

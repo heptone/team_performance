@@ -1,0 +1,11 @@
+@import "~bootstrap/dist/css/bootstrap.css";
+tr:nth-child(even) {
+    background-color: #dddddd;
+}
+td{padding:5px !important}
+.table-wrapper-scroll-y {
+    display: block;
+    max-height: 500px;
+    overflow-y: auto;
+    -ms-overflow-style: -ms-autohiding-scrollbar;
+  }

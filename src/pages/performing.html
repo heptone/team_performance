@@ -1,0 +1,90 @@
+<template>
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-6 col-md-6 col-sm-12 col-xs-12 m-md-auto pb-5">
+        <table class="table" style="margin: 0;">
+          <h2 class="sub-header">Matcher</h2>
+          <tr class="text-center text-left">
+            <th>Avspark</th>
+            <th>Hemma</th>
+            <th>Borta</th>
+            <th></th>
+            <th>Resultat</th>
+            <th></th>
+          </tr>
+          <tr repeat.for="game of games" class="text-center text-left">
+            <td>${game.time}</td>
+            <td>${game.home}</td>
+            <td>${game.away}</td>
+            <td>${game.goalsHome}</td>
+            <td>-</td>
+            <td>${game.goalsAway}</td>
+          </tr>
+        </table>
+      </div>
+      <div class="col-xs-6 col-md-6 col-sm-12 col-xs-12 pb-5">
+        <table class="table" style="margin: 0;">
+          <h2 class="sub-header">Grupptabell</h2>
+          <tr class="text-center text-xs-left">
+            <th>Lag</th>
+            <th>V</th>
+            <th>O</th>
+            <th>F</th>
+            <th>GM</th>
+            <th>IM</th>
+            <th>P</th>
+          </tr>
+          <tr repeat.for="team of groupTable" class="text-center">
+            <td>${team.team}</td>
+            <td>${team.wins}</td>
+            <td>${team.draws}</td>
+            <td>${team.loses}</td>
+            <td>${team.goalsFor}</td>
+            <td>${team.goalsAgainst}</td>
+            <td>${team.points}</td>
+          </tr>
+        </table>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-xs-6 col-md-6 col-sm-12 col-xs-12">
+        <table class="table" style="margin: 0;">
+          <h2 class="sub-header">Performanceligan</h2>
+          <tr class="text-center">
+            <th>Performer</th>
+            <th>M</th>
+            <th>Mål</th>
+            <th>A</th>
+            <th>Tabbar</th>
+            <th>Dribblingar</th>
+          </tr>
+          <tr repeat.for="performer of performerTable" class="text-center">
+            <td>${performer.performer}</td>
+            <td>${performer.games}</td>
+            <td>${performer.goals}</td>
+            <td>${performer.assists}</td>
+            <td>${performer.tabbar}</td>
+            <td>${performer.dribblingar}</td>
+          </tr>
+        </table>
+      </div>
+    </div>
+
+  </div>
+
+
+  <section>
+    <br>
+    <br>
+    <br>
+    <h2>${heading} REFERAT?</h2>
+
+    <div class="well">
+      <h4>${info}</h4>
+    </div>
+
+  </section>
+  </div>
+
+</template>
