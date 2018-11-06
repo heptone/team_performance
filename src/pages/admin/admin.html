@@ -1,0 +1,104 @@
+<template>
+  <div class="container">
+
+  </div>
+<h4>skapa match</h4>
+  <label>
+    Hemmalag:<br />
+    <select value.bind="homeSelected">
+      <option model.bind="null">Choose...</option>
+      <option repeat.for="team of teamStatistics" model.bind="team">
+        ${team.name}
+      </option>
+    </select>
+  </label>
+  Selected home: ${homeSelected.name}
+  <br>
+  <label>
+    Bortalag:<br />
+    <select value.bind="awaySelected">
+      <option model.bind="null">Choose...</option>
+      <option repeat.for="team of teamStatistics" model.bind="team">
+        ${team.name}
+      </option>
+    </select>
+  </label>
+  Selected away: ${awaySelected.name}
+
+  <br>
+  <input type="text" value.bind="gameTime" placeholder="Skriv tid som 9:00">
+  <br>
+  <label>Grupp match : <input type="checkbox" checked.bind="groupGame"></label>
+  <br>
+  <input show.bind="groupGame" type="text" value.bind="groupName" placeholder="gruppnamn, a, b, c">
+  <br>
+  <div>
+    <button type="button" class="btn btn-info bg-information" click.delegate="createGame()">skapa match</button>
+  </div>
+
+  <hr>
+
+
+  <h2>Matcher</h2>
+  <label>
+    Matcher:<br />
+    <select value.bind="gameSelected">
+      <option model.bind="null">Choose...</option>
+      <option repeat.for="game of games" model.bind="game">
+        ${game.homeTeamName} - ${game.awayTeamName} : ${game.kickoffTime}
+      </option>
+    </select>
+  </label>
+  Selected game: ${gameSelected.homeTeamName} - ${gameSelected.awayTeamName}
+
+  <br>
+  resultat <input type="text" value.bind="result" placeholder="resultat, 1X2">
+  REFERAT : <textarea rows="5" cols="30" class="pull-right" type="textarea" value.bind="gameReferat" placeholder="TEXT"></textarea>
+  <br>
+  <br>
+  hemma mål<input type="text" value.bind="homeGoals" placeholder="1 2 3 4">
+  <br>
+  <br>
+  borta mål<input type="text" value.bind="awayGoals" placeholder="1 2 3 4">
+  <br>
+  <div class="justify-content-center">
+    <button type="button" class="btn btn-info bg-information" click.delegate="gameScore()">Skicka Matchresultat</button>
+    <button type="button" class="btn btn-info bg-information" click.delegate="updateGameReferat()">Skicka referat</button>
+    <button type="button" class="btn btn-warning bg-information" click.delegate="deleteGame()">TA BORT MATCH!</button>
+  </div>
+
+  <hr>
+  <h5>Skapa lag</h5>
+  <br>
+  <input type="text" value.bind="createTeamName" placeholder="Namn på lag">
+  <br>
+  <div>
+    <button type="button" class="btn btn-info bg-information" click.delegate="createTeam()">skapa lag.</button>
+  </div>
+  <hr>
+  <h5>DELETE lag OBS, TAR BORT HEMMA LAGET!!!</h5>
+  <br>
+  <div>
+    <button type="button" class="btn btn-warning bg-warning" click.delegate="deleteTeam()">ta bort lag.</button>
+  </div>
+
+  <hr>
+  <h5>SPELARE</h5>
+  <br>
+  <label>
+    Spelare:<br />
+    <select value.bind="playerSelected">
+      <option model.bind="null">Choose...</option>
+      <option repeat.for="player of players" model.bind="player">
+        ${player.name}
+      </option>
+    </select>
+  </label>
+  Selected game: ${player.name}
+  <br>
+  <input type="text" value.bind="createPlayerName" placeholder="Namn på spelare">
+  <br>
+  <div>
+    <button type="button" class="btn btn-info bg-information" click.delegate="createPlayer()">skapa spelare.</button>
+  </div>
+</template>
