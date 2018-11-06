@@ -3,9 +3,39 @@ tr:nth-child(even) {
     background-color: #dddddd;
 }
 td{padding:5px !important}
+th{padding:5px !important}
 .table-wrapper-scroll-y {
     display: block;
     max-height: 500px;
     overflow-y: auto;
     -ms-overflow-style: -ms-autohiding-scrollbar;
   }
+
+  .table{
+    width: 100%;
+  }
+
+  .div-heading-centered {
+    text-align: center;
+    margin: auto;
+    max-width: 600px;
+  }
+
+  .div-centered {
+    text-align: left; 
+    margin: auto; 
+    width: 350px;
+  }
+    .div-centered.img {
+      width: 100%;
+    }
+
+  hr {
+    display: block;
+    height: 1px;
+    border: 0;
+    border-top: 1px solid #ccc;
+    margin: 1em 0;
+    padding: 0;
+}
+

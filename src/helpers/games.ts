@@ -3,17 +3,19 @@ import { autoinject } from 'aurelia-dependency-injection';
 
 @autoinject
 export class Game {
-    time: string;
-    home: string;
-    away: string;
-    goalsHome: string;
-    goalsAway: string;
+    _id: string;
+    kickoffTime: string;
+    homeTeamName: string;
+    homeTeamId: string;
+    awayTeamName: string;
+    awayTeamId: string;
+    homeGoals: number;
+    awayGoals: number;
+    groupGame: Boolean;
+    nameOfGroup: string;
+    result: string;
+    referat: string;
 
-    constructor(time:string, home:string, away:string, goalsHome:string, goalsAway: string){
-        this.time = time;
-        this.home = home;
-        this.away = away;
-        this.goalsHome = goalsHome;
-        this.goalsAway = goalsAway;
+    constructor(){
     }
 }

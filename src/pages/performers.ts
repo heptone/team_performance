@@ -1,26 +1,28 @@
+import { ApiService } from './../service/apiservice';
 import { Performer } from './performer';
 import { autoinject } from 'aurelia-dependency-injection';
 
 @autoinject
 export class Performers {
+    apiService: ApiService;
     performers: Performer[];
 
+
     heading = 'Performers';
-    constructor(){
-        this.performers = this.createPerformers();
+    constructor(apiService : ApiService){
+      this.apiService = apiService
+    }
+
+    activate(){
+      this.createPerformers();
     }
   
-    public createPerformers() : Performer[]{
+    async createPerformers(){
         let list: Performer[] = [];
-
-        var i: number;
-        for (i = 0; i < 5; i++){
-        let per: Performer = {name: 'heptone' + i.toString(), description: 'Dummybeskrivning ...............hello', position: 'everywhere', shirtNumber: '13', goals: '13', goalInLife: 'Livin the dream', yearsPerforming: '10'};
-        list.push(per);
-        }
-        list = this.shuffle(list);
-
-        return list;
+        var k = await this.apiService.getPlayers();
+        var arr = eval('(' + k + ')');
+        this.performers = this.shuffle(arr);
+        console.log(this.performers);
     }
     private shuffle(array) : [] {
         let counter = array.length;

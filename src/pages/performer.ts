@@ -3,23 +3,29 @@ import { autoinject } from 'aurelia-dependency-injection';
 
 @autoinject
 export class Performer {
+  _id: string;
   name: string;
   description: string;
   position: string;
-  shirtNumber: string;
-  goals: string;
+  shirtNumber: number;
   goalInLife: string;
   yearsPerforming: string;
-  
-  
+  imgRel: string;
 
-  constructor(name:string, description: string, position: string, shirtNumber: string, goals: string, goalInLife: string, yearsPerforming: string){
-    this.name = name;
-    this.description = description;
-    this.position = position;
-    this.shirtNumber = shirtNumber;
-    this.goals = goals;
-    this.goalInLife = goalInLife;
-    this.yearsPerforming = yearsPerforming;
+  games: number;
+  goals: number;
+  assists: number;
+  tabbar: number;
+  utvisningar: number;
+  dribblingar: number;
+
+  playoffGames: number;
+  playoffGoals: number;
+  playoffAssists: number;
+  playoffTabbar: number;
+  playoffUtvisningar: number;
+  playoffDribblingar: number;
+
+  constructor(){
   }
 }

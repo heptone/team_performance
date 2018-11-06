@@ -1,18 +1,27 @@
+import { ApiService } from './../service/apiservice';
+import { GetData } from './../helpers/getData';
 import { autoinject } from 'aurelia-dependency-injection';
 import { Game } from '../helpers/games';
 import { TeamStatistics } from '../helpers/teamstatistics';
-import { PerformerStatistic } from '../helpers/performerStatistic';
+import { Performer } from './performer';
 
 @autoinject
 export class Performing {
-
+    apiService: ApiService;
     heading = 'PERFORMING!';
     info = 'You can get a random quote without logging in, but if you do log in you can get a super secret quote!';
     games: Game[];
     groupTable: TeamStatistics[];
-    performerTable: PerformerStatistic[];
+    performerTable: Performer[];
+    getData: GetData;
+
+    constructor(data: GetData, apiService: ApiService){
+      this.getData = data;
+      this.apiService = apiService;
+    }
   
     activate(){
+      console.log('hej');
       this.createGames();
       this.createGroupTable();
       this.createPerformerTable();
@@ -20,36 +29,37 @@ export class Performing {
 
     }
 
-    public createGames(){
+    async createGames(){
       var games: Game[] = [];
-
-      var i: number = 0;
-      for (i = 0; i < 5; i++) {
-        var g: Game = new Game("9:00", "TP", "Izun", "5", "0");
-        games.push(g);
-      }
-      this.games = games;
+      
+      var k = await this.apiService.getGames();
+      var arr = eval('(' + k + ')');
+      this.games = arr;
+      console.log(arr);
     }
 
-    public createGroupTable(){
+    async createGroupTable(){
       var statistics: TeamStatistics[] = [];
 
-      var i: number = 0;
-      for (i = 0; i < 5; i++) {
-        var g: TeamStatistics = new TeamStatistics("team performance", "5", "0", "0", "10", "0", "15");
-        statistics.push(g);
-      }
-      this.groupTable = statistics;
+      var k = await this.apiService.getTeams();
+      var arr = eval('(' + k + ')');
+      this.groupTable = arr;
+      this.groupTable = this.groupTable.sort((n1,n2) => {
+        if (n1.groupPoints < n2.groupPoints) {
+          return 1;
+        } 
+        if (n1.groupPoints > n2.groupPoints) {
+          return -1;
+        }
+        return 0;
+      });
+      console.log(arr);
+      //this.groupTable = statistics;
     }
-    public createPerformerTable(){
-      var performerTable: PerformerStatistic[] = [];
-
-      var i: number = 0;
-      for (i = 0; i < 5; i++) {
-        var g: PerformerStatistic = new PerformerStatistic("HEPHASSOEKE ok", "5", "15", "4", "4", "1", "3");
-        performerTable.push(g);
-      }
-      this.performerTable = performerTable;
-
+    async createPerformerTable(){
+      var k = await this.apiService.getPlayers();
+      var arr = eval('(' + k + ')');
+      this.performerTable = arr;
+      console.log(this.performerTable);
     }
   }
