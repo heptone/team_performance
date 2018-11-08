@@ -14,7 +14,7 @@ export class ApiService {
 
     http.configure(config => {
       config
-        .withBaseUrl('http://localhost:4000/api/')
+        .withBaseUrl('http://performance.nu:4000/api/')
         /*
         .withDefaults({
           credentials: 'same-origin',

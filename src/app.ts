@@ -9,6 +9,7 @@ export class App {
   title = "test";
   configureRouter(config: RouterConfiguration, router: Router) {
       this.router = router;
+      config.options.pushState = true;
       config.title = 'Aurelia';
       config.map([
           { route: ['', 'home'], name: 'app', moduleId: PLATFORM.moduleName("./welcome")},

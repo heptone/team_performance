@@ -14,7 +14,7 @@ const when = (condition, config, negativeConfig) =>
   condition ? ensureArray(config) : ensureArray(negativeConfig);
 
 // primary config:
-const title = 'Aurelia Navigation Skeleton';
+const title = 'Team Performance';
 const outDir = path.resolve(__dirname, project.platform.output);
 const srcDir = path.resolve(__dirname, 'src');
 const nodeModulesDir = path.resolve(__dirname, 'node_modules');
@@ -46,6 +46,11 @@ module.exports = ({production, server, extractCss, coverage, analyze, karma} = {
   },
   performance: { hints: false },
   devServer: {
+      // ...
+      host: '192.168.0.55',
+      disableHostCheck: true,
+      port: 80,
+      // ...
     contentBase: outDir,
     // serve index.html for all 404 (required for push-state)
     historyApiFallback: true
