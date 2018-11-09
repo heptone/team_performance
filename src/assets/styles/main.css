@@ -29,6 +29,11 @@ th{padding:5px !important}
     .div-centered.img {
       width: 100%;
     }
+  .div-centered-more {
+    text-align: left; 
+    margin: auto; 
+    width: 550px;
+  }
 
   hr {
     display: block;

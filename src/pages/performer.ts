@@ -7,7 +7,8 @@ export class Performer {
   name: string;
   description: string;
   position: string;
-  shirtNumber: number;
+  shirtNumber: string;
+  shirtName: string;
   goalInLife: string;
   yearsPerforming: string;
   imgRel: string;
