@@ -21,7 +21,15 @@ export class Performers {
         let list: Performer[] = [];
         var k = await this.apiService.getPlayers();
         var arr = eval('(' + k + ')');
-        this.performers = this.shuffle(arr);
+        var arr2 = new Array();
+        arr2 = arr;
+        const imgrel : string = "./profil/";
+        let i : number;
+
+        for (i = 0; i < arr2.length; i++){
+            arr2[i].imgRel = imgrel + arr2[i].imgRel;
+        }
+        this.performers = this.shuffle(arr2);
         console.log(this.performers);
     }
     private shuffle(array) : [] {

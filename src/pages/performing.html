@@ -16,6 +16,17 @@
             <td>${game.awayTeamName}</td>
             <td>${game.homeGoals} - ${game.awayGoals}</td>
           </tr>
+          <div >
+            <tr class="text-center text-left">
+              <td show.bind="playOffGames.length > 0" colspan="4">------------ PLAYOFF ------------</td>
+            </tr>
+          <div>
+            <tr repeat.for="game of playOffGames" class="text-center text-left">
+              <td>${game.kickoffTime}</td>
+              <td>${game.homeTeamName}</td>
+              <td>${game.awayTeamName}</td>
+              <td>${game.homeGoals} - ${game.awayGoals}</td>
+            </tr>
         </table>
       </div>
       <div class="col-12 col-xs-6 col-md-6 col-sm-12 col-xs-12 pb-5">
@@ -30,7 +41,7 @@
             <th>IM</th>
             <th>P</th>
           </tr>
-          <tr repeat.for="team of groupTable" class="text-center">
+          <tr repeat.for="team of groupTable" class="text-center" if.bind="showTeam(team)">
             <td>${team.name}</td>
             <td>${team.groupWins}</td>
             <td>${team.groupDraws}</td>
@@ -38,59 +49,60 @@
             <td>${team.groupGoalsMade}</td>
             <td>${team.groupGoalsAgainst}</td>
             <td>${team.groupPoints}</td>
-          </tr>
-        </table>
       </div>
+      </tr>
+      </table>
     </div>
+  </div>
 
-    <div class="row d-none d-sm-block">
-      <div class="col-12 col-xs-6 col-md-6 col-sm-12 col-xs-12">
-        <table class="table" style="margin: 0;">
-          <h2 class="sub-header">Performanceligan</h2>
-          <tr class="text-center">
-            <th>Performer</th>
-            <th>M</th>
-            <th>Mål</th>
-            <th>A</th>
-            <th>Tabbar</th>
-            <th>Dribblingar</th>
-          </tr>
-          <tr repeat.for="performer of performerTable" class="text-center">
-            <td>${performer.name}</td>
-            <td>${performer.games}</td>
-            <td>${performer.goals}</td>
-            <td>${performer.assists}</td>
-            <td>${performer.tabbar}</td>
-            <td>${performer.dribblingar}</td>
-          </tr>
+  <div class="row d-none d-sm-block">
+    <div class="col-12 col-xs-6 col-md-6 col-sm-12 col-xs-12">
+      <table class="table" style="margin: 0;">
+        <h2 class="sub-header">Performanceligan</h2>
+        <tr class="text-center">
+          <th>Performer</th>
+          <th>M</th>
+          <th>Mål</th>
+          <th>A</th>
+          <th>Tabbar</th>
+          <th>Dribblingar</th>
+        </tr>
+        <tr repeat.for="performer of performerTable" class="text-center">
+          <td>${performer.name}</td>
+          <td>${performer.games}</td>
+          <td>${performer.goals}</td>
+          <td>${performer.assists}</td>
+          <td>${performer.tabbar}</td>
+          <td>${performer.dribblingar}</td>
+        </tr>
 
-        </table>
-      </div>
+      </table>
     </div>
+  </div>
 
-    <div class="row d-block d-sm-none">
-      <div class="col-12 col-xs-6 col-md-6 col-sm-12 col-xs-12">
-        <table class="table" style="margin: 0;">
-          <h2 class="sub-header">Performanceligan</h2>
-          <tr class="text-center">
-            <th>Performer</th>
-            <th>M</th>
-            <th>Mål</th>
-            <th>A</th>
-            <th>Tab</th>
-            <th>Dri</th>
-          </tr>
-          <tr repeat.for="performer of performerTable" class="text-center">
-            <td>${performer.name}</td>
-            <td>${performer.games}</td>
-            <td>${performer.goals}</td>
-            <td>${performer.assists}</td>
-            <td>${performer.tabbar}</td>
-            <td>${performer.dribblingar}</td>
-          </tr>
-        </table>
-      </div>
+  <div class="row d-block d-sm-none">
+    <div class="col-12 col-xs-6 col-md-6 col-sm-12 col-xs-12">
+      <table class="table" style="margin: 0;">
+        <h2 class="sub-header">Performanceligan</h2>
+        <tr class="text-center">
+          <th>Performer</th>
+          <th>M</th>
+          <th>Mål</th>
+          <th>A</th>
+          <th>Tab</th>
+          <th>Dri</th>
+        </tr>
+        <tr repeat.for="performer of performerTable" class="text-center">
+          <td>${performer.name}</td>
+          <td>${performer.games}</td>
+          <td>${performer.goals}</td>
+          <td>${performer.assists}</td>
+          <td>${performer.tabbar}</td>
+          <td>${performer.dribblingar}</td>
+        </tr>
+      </table>
     </div>
+  </div>
 
   </div>
 

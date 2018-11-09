@@ -1,23 +1,24 @@
 <template>
   <div class="container">
-      <div class="card-deck justify-content-center">
-        <div repeat.for="performer of performers">
-          <div class="card d-block m-2 p-2" style="width: 21rem;">
-            <img class="card-img-top" src="../assets/performersPhotos/HeptoneTest.jpg" alt="Card image cap">
-            <div class="card-body">
-              <h5 class="card-title text-center">${performer.name}</h5>
-              <p class="card-text">${performer.description}</p>
-            </div>
-            <ul class="list-group list-group-flush">
-              <li class="list-group-item"><span class="font-weight-bold">Position: </span>${performer.position}</li>
-              <li class="list-group-item"><span class="font-weight-bold">Tröjnummer: </span>${performer.shirtNumber}</li>
-              <li class="list-group-item"><span class="font-weight-bold"># TP mål: </span><span class="pull-right">${performer.goals}</span></li>
-              <li class="list-group-item"><span class="font-weight-bold">Livsmål: </span><span class="pull-right">${performer.goalInLife}</span></li>
-              <li class="list-group-item"><span class="font-weight-bold">År Performing: </span>${performer.yearsPerforming}</li>
-            </ul>
+    <div class="card-deck justify-content-center">
+      <div repeat.for="performer of performers">
+        <div class="card d-block m-2 p-2" style="width: 21rem;">
+          <!-- <img class="card-img-top" src="../assets/performersPhotos/HeptoneTest.jpg" alt="Card image cap"> -->
+          <img class="card-img-top" src="${performer.imgRel}" alt="Card image cap" width="310px" height="350px">
+          <div class="card-body">
+            <h5 class="card-title text-center">${performer.name}</h5>
+            <p class="card-text">${performer.description}</p>
           </div>
+          <ul class="list-group list-group-flush">
+            <li class="list-group-item"><span class="font-weight-bold">Position: </span>${performer.position}</li>
+            <li class="list-group-item"><span class="font-weight-bold">Tröjnummer: </span>${performer.shirtNumber}</li>
+            <li class="list-group-item"><span class="font-weight-bold"># TP mål: </span><span class="pull-right">${performer.goals}</span></li>
+            <li class="list-group-item"><span class="font-weight-bold">Livsmål: </span><span class="pull-right">${performer.goalInLife}</span></li>
+            <li class="list-group-item"><span class="font-weight-bold">År Performing: </span>${performer.yearsPerforming}</li>
+          </ul>
         </div>
       </div>
+    </div>
 
   </div>
 </template>
