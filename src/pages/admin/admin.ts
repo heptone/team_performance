@@ -138,9 +138,9 @@ export class Admin {
     console.log(away);
 
     var homeJsonString = JSON.stringify(home);
-    //await this.apiService.putTeam(home._id, homeJsonString);
+    await this.apiService.putTeam(home._id, homeJsonString);
     var awayJsonString = JSON.stringify(away);
-    //await this.apiService.putTeam(away._id, awayJsonString);
+    await this.apiService.putTeam(away._id, awayJsonString);
   }
 
   async createTeam() {

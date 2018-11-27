@@ -10,9 +10,8 @@ export class App {
   configureRouter(config: RouterConfiguration, router: Router) {
       this.router = router;
       config.options.pushState = true;
-      config.title = 'Aurelia';
       config.map([
-          { route: ['', 'home'], name: 'app', moduleId: PLATFORM.moduleName("./welcome")},
+          { route: ['', 'home'], name: 'app', moduleId: PLATFORM.moduleName("./welcome"), title: "Team Performance"},
           { route: 'admin', name: 'admin', moduleId: PLATFORM.moduleName("./pages/admin/admin"),  title: "admin"},
           { route: 'performing', name: 'performing', moduleId: PLATFORM.moduleName("./pages/performing"),  title: "performing", nav: true},
           { route: 'performers', name: 'performers', moduleId: PLATFORM.moduleName("./pages/performers"),  title: "performers", nav: true},

@@ -47,7 +47,7 @@ module.exports = ({production, server, extractCss, coverage, analyze, karma} = {
   performance: { hints: false },
   devServer: {
       // ...
-      host: '192.168.0.55',
+      host: '192.168.0.99',
       disableHostCheck: true,
       port: 80,
       // ...
